@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct CalcButton: View {
+    var text: String
+    var width: CGFloat
+    var height: CGFloat
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(text) {}.frame(width: width, height: height).border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/).font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    CalcButton()
+    CalcButton(text: "", width: 100, height: 60).border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 2)
 }

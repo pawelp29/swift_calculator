@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct MyTF: View {
+    @Binding var text: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(content: {
+            Text("Podaj kolor")
+            TextField("Podaj cos", text: $text)
+        })
     }
 }
 
 #Preview {
-    MyTF()
+    MyTF(text: .constant(""))
 }
