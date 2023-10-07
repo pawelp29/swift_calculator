@@ -19,17 +19,30 @@ struct CalcButton: View {
         Button(text) {
             let operation = text
             if (operation == "+" || operation == "-" || operation == "*" || operation == "/") {
-                previousNum = Double(textField)!
+                guard let previousNum = Double(textField) else {
+                    textField = "Dane niepoprawne"
+                    isResult = true
+                    return
+                }
                 selectedOperand = operation
                 textField = ""
             }
             else if (operation == "sin") {
-                textField = Calculations().calculate(var1: Double (textField)!, var2: nil, operand: "sin")
+                guard let var1 = Double (textField) else {
+                    textField = "Dane niepoprawne"
+                    isResult = true
+                    return
+                }
+                textField = Calculations().calculate(var1: var1, var2: nil, operand: "sin")
                 isResult = true
             }
             else if (operation == "Oblicz" && selectedOperand != "") {
                 let var1 = Double (previousNum)
-                let var2 = Double (textField)
+                guard let var2 = Double (textField) else {
+                    textField = "Dane niepoprawne"
+                    isResult = true
+                    return
+                }
                 textField = Calculations().calculate(var1: var1,var2: var2, operand: selectedOperand)
                 isResult = true
             }
