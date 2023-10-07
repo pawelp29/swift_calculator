@@ -8,8 +8,26 @@
 import Foundation
 
 struct Calculations {
-    func jakasFun(napis: String) -> String? {
-        guard napis == "ALA" else { return nil }
-        return napis
+    func calculate(var1: Double, var2: Double?, operand: String) -> String {
+        var result = ""
+        switch operand {
+        case "+":
+            result = String (var1+(var2 ?? 0))
+        case "-":
+            result = String (var1-(var2 ?? 0))
+        case "*":
+            result = String (var1*(var2 ?? 0))
+        case "/":
+            if (var2 == 0) {
+                result = "Próba dzielenia przez 0"
+            }
+            else {
+                result = String (var1/(var2 ?? 0))
+            }
+        case "sin":
+            result = String (sin(var1))
+        default: break
+        }
+        return result
     }
 }
