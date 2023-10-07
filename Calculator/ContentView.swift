@@ -17,7 +17,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("KALKULATOR").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+            Text("KALKULATOR").font(.largeTitle)
             Spacer()
             TextField(
                     "",

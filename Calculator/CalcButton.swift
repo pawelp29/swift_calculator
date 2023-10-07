@@ -40,7 +40,7 @@ struct CalcButton: View {
                 }
                 textField += operation
             }
-        }.frame(width: width, height: height).border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 2).font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+        }.frame(width: width, height: height).border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 2).font(.largeTitle)
     }
 }
 
