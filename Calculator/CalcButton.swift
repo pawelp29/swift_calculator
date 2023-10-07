@@ -19,10 +19,16 @@ struct CalcButton: View {
         Button(text) {
             let operation = text
             if (operation == "+" || operation == "-" || operation == "*" || operation == "/") {
-                guard let previousNum = Double(textField) else {
-                    textField = "Dane niepoprawne"
-                    isResult = true
-                    return
+                if (textField == "") {
+                    previousNum = 0
+                }
+                else {
+                    guard let num = Double(textField) else {
+                        textField = "Dane niepoprawne"
+                        isResult = true
+                        return
+                    }
+                    previousNum = num
                 }
                 selectedOperand = operation
                 textField = ""
@@ -37,6 +43,9 @@ struct CalcButton: View {
                 isResult = true
             }
             else if (operation == "Oblicz" && selectedOperand != "") {
+                if (isResult) {
+                    return
+                }
                 let var1 = Double (previousNum)
                 guard let var2 = Double (textField) else {
                     textField = "Dane niepoprawne"

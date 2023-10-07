@@ -22,7 +22,7 @@ struct Calculations {
                 result = "Próba dzielenia przez 0"
             }
             else {
-                result = String (var1/(var2 ?? 0))
+                result = String (Double (var1/(var2 ?? 1)))
             }
         case "sin":
             result = String (sin(var1))
