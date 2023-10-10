@@ -39,7 +39,13 @@ struct CalcButton: View {
                     isResult = true
                     return
                 }
-                textField = Calculations().calculate(var1: var1, var2: nil, operand: "sin")
+                let res = Calculations().calculate(var1: var1, var2: nil, operand: "sin")
+                if (res != nil) {
+                    textField = String (res!)
+                }
+                else {
+                    textField = "Dane niepoprawne"
+                }
                 isResult = true
             }
             else if (operation == "Oblicz" && selectedOperand != "") {
@@ -52,7 +58,13 @@ struct CalcButton: View {
                     isResult = true
                     return
                 }
-                textField = Calculations().calculate(var1: var1,var2: var2, operand: selectedOperand)
+                let res = Calculations().calculate(var1: var1,var2: var2, operand: selectedOperand)
+                if (res != nil) {
+                    textField = String (res!)
+                }
+                else {
+                    textField = "Dane niepoprawne"
+                }
                 isResult = true
             }
             else {
